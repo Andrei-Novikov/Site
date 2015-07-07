@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ts0-GA-dlk">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Сайт-->
+        <scene sceneID="5an-Te-WZr">
+            <objects>
+                <tableViewController id="4Nm-vp-Aul" customClass="MainViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sw0-Kj-16Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="N7n-04-Zb8" customClass="TableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N7n-04-Zb8" id="gJD-A4-k9U">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tE7-B8-EDW" userLabel="Switch">
+                                            <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="49" id="Stn-tl-e8O"/>
+                                                <constraint firstAttribute="height" constant="31" id="pGg-ae-PEi"/>
+                                            </constraints>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Активность сайта" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3v-qQ-A0g">
+                                            <rect key="frame" x="18" y="0.0" width="237" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="tE7-B8-EDW" secondAttribute="trailing" constant="8" id="6PP-sx-cXQ"/>
+                                        <constraint firstItem="g3v-qQ-A0g" firstAttribute="leading" secondItem="gJD-A4-k9U" secondAttribute="leading" constant="18" id="7a0-O1-pvB"/>
+                                        <constraint firstAttribute="bottom" secondItem="g3v-qQ-A0g" secondAttribute="bottom" id="fwM-lS-Yqf"/>
+                                        <constraint firstItem="tE7-B8-EDW" firstAttribute="leading" secondItem="g3v-qQ-A0g" secondAttribute="trailing" constant="8" id="iQX-mu-Hmb"/>
+                                        <constraint firstItem="g3v-qQ-A0g" firstAttribute="top" secondItem="gJD-A4-k9U" secondAttribute="top" id="mE7-Bf-NlB"/>
+                                        <constraint firstAttribute="centerY" secondItem="tE7-B8-EDW" secondAttribute="centerY" id="mN7-aJ-E1k"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="m_switch" destination="tE7-B8-EDW" id="xsh-dB-nO1"/>
+                                    <outlet property="m_text" destination="g3v-qQ-A0g" id="ZCr-Xs-KQq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="4Nm-vp-Aul" id="AnC-ub-8Nc"/>
+                            <outlet property="delegate" destination="4Nm-vp-Aul" id="3rk-PO-uVV"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <tabBarItem key="tabBarItem" title="Сайт" image="avatar" id="264-dX-DCh"/>
+                    <navigationItem key="navigationItem" title="Сайт" id="nP2-TI-nAU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJM-Qi-hoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410" y="147"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kh0-xH-iN8">
+            <objects>
+                <tabBarController id="ts0-GA-dlk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hRD-M0-s8w"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oP0-aV-ePB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4Nm-vp-Aul" kind="relationship" relationship="viewControllers" id="Ccp-MW-x2O"/>
+                        <segue destination="yX0-JJ-v0i" kind="relationship" relationship="viewControllers" id="DlM-3D-VUc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gpe-74-i8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-315" y="463"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="iX2-m0-ymm">
+            <objects>
+                <tableViewController id="yX0-JJ-v0i" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FKu-kY-YMc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Данные авторизации" id="kZw-Aj-XM7">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Login" id="LT1-OH-9Yb" userLabel="Login">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LT1-OH-9Yb" id="2ir-1X-XhP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите логин" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpp-Dm-fpy">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="VIV-bm-KpP"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Bpp-Dm-fpy" firstAttribute="leading" secondItem="2ir-1X-XhP" secondAttribute="leading" constant="16" id="HQg-Cm-KFH"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bpp-Dm-fpy" secondAttribute="bottom" id="Smd-Oq-Aea"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bpp-Dm-fpy" secondAttribute="trailing" constant="8" id="Xfa-ok-2cf"/>
+                                                <constraint firstItem="Bpp-Dm-fpy" firstAttribute="top" secondItem="2ir-1X-XhP" secondAttribute="top" id="pZy-uk-yrz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Login" id="6Y1-Fp-dkj" userLabel="Login">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Y1-Fp-dkj" id="iPr-4X-4c6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TSY-ni-anZ">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="a4F-td-fcd"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TSY-ni-anZ" firstAttribute="top" secondItem="iPr-4X-4c6" secondAttribute="top" id="3HJ-2T-KpM"/>
+                                                <constraint firstItem="TSY-ni-anZ" firstAttribute="leading" secondItem="iPr-4X-4c6" secondAttribute="leading" constant="16" id="aVf-Qm-5eQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="TSY-ni-anZ" secondAttribute="trailing" constant="8" id="e7w-gt-a2x"/>
+                                                <constraint firstAttribute="bottom" secondItem="TSY-ni-anZ" secondAttribute="bottom" id="mnQ-Xf-eFR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Домены" id="SRA-yL-Yld">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell 0" id="4fW-Vy-DON">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4fW-Vy-DON" id="xpf-Fx-yCE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Список доменов (через запятую)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-qh-B9p">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="aLC-ri-Lq3"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ZEf-qh-B9p" secondAttribute="bottom" id="8AP-3g-frl"/>
+                                                <constraint firstItem="ZEf-qh-B9p" firstAttribute="leading" secondItem="xpf-Fx-yCE" secondAttribute="leading" constant="16" id="9i9-G5-xA0"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZEf-qh-B9p" secondAttribute="trailing" constant="8" id="d8r-dz-qpD"/>
+                                                <constraint firstItem="ZEf-qh-B9p" firstAttribute="top" secondItem="xpf-Fx-yCE" secondAttribute="top" id="oMh-Yv-htE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="URL включения/отключения сайта" id="Ohc-3y-Ape">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell 0" id="dsh-gJ-foi">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dsh-gJ-foi" id="QVR-wO-Qof">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DbU-hs-3r3">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="nj6-XJ-w1m"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DbU-hs-3r3" firstAttribute="top" secondItem="QVR-wO-Qof" secondAttribute="top" id="0ik-R6-yGi"/>
+                                                <constraint firstAttribute="bottom" secondItem="DbU-hs-3r3" secondAttribute="bottom" id="VKe-1R-eqC"/>
+                                                <constraint firstAttribute="trailing" secondItem="DbU-hs-3r3" secondAttribute="trailing" constant="8" id="ZL1-DN-NcL"/>
+                                                <constraint firstItem="DbU-hs-3r3" firstAttribute="leading" secondItem="QVR-wO-Qof" secondAttribute="leading" constant="16" id="xPH-BF-92A"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="URL доступа для пользователей" id="cDo-9i-XyC">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell 0" id="d1u-Xe-ve1">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1u-Xe-ve1" id="OMG-cm-g70">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qvj-4E-Hco">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="HhZ-EQ-Jgf"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Qvj-4E-Hco" secondAttribute="trailing" constant="8" id="5Fa-sX-rIF"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qvj-4E-Hco" secondAttribute="bottom" id="JI5-Dj-Mzj"/>
+                                                <constraint firstItem="Qvj-4E-Hco" firstAttribute="leading" secondItem="OMG-cm-g70" secondAttribute="leading" constant="16" id="Vvd-MM-6Rh"/>
+                                                <constraint firstItem="Qvj-4E-Hco" firstAttribute="top" secondItem="OMG-cm-g70" secondAttribute="top" id="ock-3T-ZjE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="URL получения текущего состояния" id="V8j-sj-z99">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell 0" id="zRp-oU-Atw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zRp-oU-Atw" id="UMn-Ni-opa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3S-ux-5xd">
+                                                    <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="yX0-JJ-v0i" id="ClZ-86-3sQ"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="B3S-ux-5xd" secondAttribute="trailing" constant="8" id="FN9-96-YRB"/>
+                                                <constraint firstAttribute="bottom" secondItem="B3S-ux-5xd" secondAttribute="bottom" id="KAX-L4-9pb"/>
+                                                <constraint firstItem="B3S-ux-5xd" firstAttribute="leading" secondItem="UMn-Ni-opa" secondAttribute="leading" constant="16" id="mYZ-cf-CrA"/>
+                                                <constraint firstItem="B3S-ux-5xd" firstAttribute="top" secondItem="UMn-Ni-opa" secondAttribute="top" id="pBZ-lf-Qrd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="yX0-JJ-v0i" id="lQd-N3-eZU"/>
+                            <outlet property="delegate" destination="yX0-JJ-v0i" id="x99-9O-8hS"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" image="Settings" id="rS7-O7-wjL"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="KDX-4O-9M5">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="wfs-Qv-vB9"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="text_access_url" destination="Qvj-4E-Hco" id="HV7-Yd-cMw"/>
+                        <outlet property="text_active_url" destination="DbU-hs-3r3" id="hgO-dx-ORf"/>
+                        <outlet property="text_domens" destination="ZEf-qh-B9p" id="74W-FZ-z2D"/>
+                        <outlet property="text_login" destination="Bpp-Dm-fpy" id="LSN-EX-vih"/>
+                        <outlet property="text_password" destination="TSY-ni-anZ" id="oJg-06-S9b"/>
+                        <outlet property="text_status_url" destination="B3S-ux-5xd" id="MLj-GN-mBa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFS-af-u5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410" y="790"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Settings" width="25" height="25"/>
+        <image name="avatar" width="32" height="32"/>
+    </resources>
+</document>

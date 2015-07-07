@@ -1,0 +1,30 @@
+//
+//  Site-Prefix.pch
+//  Site
+//
+//  Created by Navigator on 4/28/15.
+//  Copyright (c) 2015 OrangeSoft_Brest. All rights reserved.
+//
+
+#ifndef Site_Site_Prefix_pch
+#define Site_Site_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreGraphics/CoreGraphics.h>
+    #import <CoreData/CoreData.h>
+    #import "K9Helpers.h"
+    #import "K9UIColorExt.h"
+    #import "K9UIImageExt.h"
+    #import "K9UIFontExt.h"
+    #import "K9UIViewExt.h"
+    #import "K9NSDateExt.h"
+    #import "K9ServerConsts.h"
+    #import "K9ServerCache.h"
+    #import "K9ServerManager.h"
+    #import "K9ServerProvider.h"
+    #import "K9Consts.h"
+#endif
