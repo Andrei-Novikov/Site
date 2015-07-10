@@ -16,7 +16,9 @@
 
 #define DEFAULTS_PASSWORD           @"Password"
 #define DEFAULTS_LOGIN              @"Login"
+#define DEFAULTS_SETTINGS           @"settings"
 #define DEFAULTS_DOMAINS            @"site_domains"
+#define DEFAULTS_DOMAIN             @"site_domain"
 #define DEFAULTS_URL_ACTIVE         @"site_active"
 #define DEFAULTS_URL_ACCESS         @"site_access"
 #define DEFAULTS_URL_STATUS         @"site_status"

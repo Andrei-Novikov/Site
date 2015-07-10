@@ -33,6 +33,9 @@
 		DE4D34951AEF9CAF00DF4FC1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4D34941AEF9CAF00DF4FC1 /* CoreData.framework */; };
 		DE4D34991AEF9D7F00DF4FC1 /* K9ServerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4D34981AEF9D7F00DF4FC1 /* K9ServerProvider.m */; };
 		DE4D349B1AEFA13F00DF4FC1 /* K9ServerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4D349A1AEFA13F00DF4FC1 /* K9ServerCache.m */; };
+		DEB338371B4FDB4900BCD751 /* AuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB338361B4FDB4900BCD751 /* AuthorizationViewController.m */; };
+		DEB3383A1B4FE1CF00BCD751 /* AuthorizationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB338391B4FE1CF00BCD751 /* AuthorizationRequest.m */; };
+		DEB3383D1B4FE2BB00BCD751 /* AuthorizationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB3383C1B4FE2BB00BCD751 /* AuthorizationResponse.m */; };
 		DEF707B81AFCC5940083FEE3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF707B71AFCC5940083FEE3 /* TableViewCell.m */; };
 		DEFFE84B1AF0BAD8007DAEE5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFFE84A1AF0BAD8007DAEE5 /* MainViewController.m */; };
 		DEFFE84E1AF0BAE5007DAEE5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFFE84D1AF0BAE5007DAEE5 /* SettingsViewController.m */; };
@@ -110,6 +113,12 @@
 		DE4D34971AEF9D7F00DF4FC1 /* K9ServerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K9ServerProvider.h; sourceTree = "<group>"; };
 		DE4D34981AEF9D7F00DF4FC1 /* K9ServerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K9ServerProvider.m; sourceTree = "<group>"; };
 		DE4D349A1AEFA13F00DF4FC1 /* K9ServerCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K9ServerCache.m; sourceTree = "<group>"; };
+		DEB338351B4FDB4900BCD751 /* AuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationViewController.h; sourceTree = "<group>"; };
+		DEB338361B4FDB4900BCD751 /* AuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationViewController.m; sourceTree = "<group>"; };
+		DEB338381B4FE1CF00BCD751 /* AuthorizationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationRequest.h; sourceTree = "<group>"; };
+		DEB338391B4FE1CF00BCD751 /* AuthorizationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationRequest.m; sourceTree = "<group>"; };
+		DEB3383B1B4FE2BB00BCD751 /* AuthorizationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationResponse.h; sourceTree = "<group>"; };
+		DEB3383C1B4FE2BB00BCD751 /* AuthorizationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationResponse.m; sourceTree = "<group>"; };
 		DEF707B61AFCC5940083FEE3 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		DEF707B71AFCC5940083FEE3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		DEFFE8491AF0BAD8007DAEE5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -206,6 +215,8 @@
 				DE4D34411AEF932800DF4FC1 /* K9AppDelegate.m */,
 				DE4D34461AEF932800DF4FC1 /* Main.storyboard */,
 				DE4D344B1AEF932800DF4FC1 /* LaunchScreen.xib */,
+				DEB338351B4FDB4900BCD751 /* AuthorizationViewController.h */,
+				DEB338361B4FDB4900BCD751 /* AuthorizationViewController.m */,
 				DEFFE8491AF0BAD8007DAEE5 /* MainViewController.h */,
 				DEFFE84A1AF0BAD8007DAEE5 /* MainViewController.m */,
 				DEFFE84C1AF0BAE5007DAEE5 /* SettingsViewController.h */,
@@ -277,6 +288,8 @@
 		DEFFE8521AF0C330007DAEE5 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				DEB338381B4FE1CF00BCD751 /* AuthorizationRequest.h */,
+				DEB338391B4FE1CF00BCD751 /* AuthorizationRequest.m */,
 				DEFFE85B1AF0EC82007DAEE5 /* GetStateRequest.h */,
 				DEFFE85C1AF0EC82007DAEE5 /* GetStateRequest.m */,
 				DEFFE8551AF0EC55007DAEE5 /* SetActiveRequest.h */,
@@ -290,6 +303,8 @@
 		DEFFE8531AF0C33E007DAEE5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				DEB3383B1B4FE2BB00BCD751 /* AuthorizationResponse.h */,
+				DEB3383C1B4FE2BB00BCD751 /* AuthorizationResponse.m */,
 				DEFFE85E1AF0EC94007DAEE5 /* GetStateResponse.h */,
 				DEFFE85F1AF0EC94007DAEE5 /* GetStateResponse.m */,
 				DEFFE8611AF0ECA8007DAEE5 /* SetActiveResponse.h */,
@@ -479,11 +494,13 @@
 				DE4D348B1AEF9B9A00DF4FC1 /* K9UIImageExt.m in Sources */,
 				DE4D34781AEF9B4A00DF4FC1 /* K9Parser.m in Sources */,
 				DEFFE84E1AF0BAE5007DAEE5 /* SettingsViewController.m in Sources */,
+				DEB3383D1B4FE2BB00BCD751 /* AuthorizationResponse.m in Sources */,
 				DE4D34891AEF9B9A00DF4FC1 /* K9UIFontExt.m in Sources */,
 				DEFFE8631AF0ECA8007DAEE5 /* SetActiveResponse.m in Sources */,
 				DE4D346B1AEF981800DF4FC1 /* K9BaseResponse.m in Sources */,
 				DEFFE85A1AF0EC68007DAEE5 /* SetAccessRequest.m in Sources */,
 				DE4D34881AEF9B9A00DF4FC1 /* K9UIColorExt.m in Sources */,
+				DEB338371B4FDB4900BCD751 /* AuthorizationViewController.m in Sources */,
 				DEFFE8601AF0EC94007DAEE5 /* GetStateResponse.m in Sources */,
 				DE4D348F1AEF9C0800DF4FC1 /* K9HSBColor.m in Sources */,
 				DE4D34421AEF932800DF4FC1 /* K9AppDelegate.m in Sources */,
@@ -498,6 +515,7 @@
 				DEFFE8571AF0EC55007DAEE5 /* SetActiveRequest.m in Sources */,
 				DEFFE85D1AF0EC82007DAEE5 /* GetStateRequest.m in Sources */,
 				DE4D34711AEF984500DF4FC1 /* K9FileRequest.m in Sources */,
+				DEB3383A1B4FE1CF00BCD751 /* AuthorizationRequest.m in Sources */,
 				DEF707B81AFCC5940083FEE3 /* TableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,7 +656,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/system";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58d9701b-ece9-4a52-9755-1927ef5ea084";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};

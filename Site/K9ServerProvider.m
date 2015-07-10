@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSInteger m_internetNotAvailableCounter;
 @property (nonatomic, strong) NSString* p_changePhoneNumber;
 @property (nonatomic, strong) NSNumber* p_myUserID;
+@property (nonatomic, strong) NSMutableDictionary* p_settings;
 @end
 
 #pragma mark -
@@ -168,9 +169,9 @@
 }
 
 #pragma mark -
-- (void)setActive:(SetActiveRequest*)request domain:(NSString*)domain completed:(void(^)(SetActiveResponse* result, NSError* error))completed
+- (void)setActive:(SetActiveRequest*)request completed:(void(^)(SetActiveResponse* result, NSError* error))completed
 {
-    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", domain, [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACTIVE]];
+    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", self.domain, self.siteActivePath];
     [[K9ServerManager shared] postRequest:request
                               requestType:ServerManagerRequestType_JSON
                        requestRelativeURL:relativeURL
@@ -179,9 +180,9 @@
                                  delegate:completed];
 }
 
-- (void)setAccess:(SetAccessRequest*)request domain:(NSString*)domain completed:(void(^)(SetAccessResponse* result, NSError* error))completed
+- (void)setAccess:(SetAccessRequest*)request completed:(void(^)(SetAccessResponse* result, NSError* error))completed
 {
-    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", domain, [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACCESS]];
+    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", self.domain, self.userAccessPath];
     [[K9ServerManager shared] postRequest:request
                               requestType:ServerManagerRequestType_JSON
                        requestRelativeURL:relativeURL
@@ -190,9 +191,9 @@
                                  delegate:completed];
 }
 
-- (void)getStatus:(GetStateRequest*)request domain:(NSString*)domain completed:(void(^)(GetStateResponse* response, NSError* error))completed
+- (void)getStatus:(GetStateRequest*)request completed:(void(^)(GetStateResponse* response, NSError* error))completed
 {
-    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", domain, [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_STATUS]];
+    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", self.domain, self.currentStatePath];
     [[K9ServerManager shared] postRequest:request
                               requestType:ServerManagerRequestType_JSON
                        requestRelativeURL:relativeURL
@@ -219,5 +220,97 @@
 ////                           responseClass:[GetStateResponse class]
 ////                                delegate:completed];
 //}
+
+- (void)authorizationWithLogin:(NSString*)login password:(NSString*)password completed:(void(^)(AuthorizationResponse* result, NSError* error))completed
+{
+/*    AuthorizationRequest* request = [AuthorizationRequest new];
+    request.login    = login;
+    request.password = password;
+    [[K9ServerManager shared] postRequest:request
+                              requestType:ServerManagerRequestType_JSON
+                       requestRelativeURL:SERVER_AUTHORIZATION
+                               uploadData:nil
+                            responseClass:[K9AuthorizationResponse class]
+                                 delegate:^(id response, NSError *error) {
+                                     if (!error)
+                                     {
+                                         self.p_myUserID = [(K9AuthorizationResponse*)response user].id;
+                                         self.token = [(K9AuthorizationResponse*)response user].access_token;
+                                         self.m_phone = [(K9AuthorizationResponse*)response user].phone;
+                                         [[K9ServerManager shared].HTTPsession.requestSerializer setValue:self.token
+                                                                                       forHTTPHeaderField:SERVER_HEADER_TOKEN];
+                                         [[K9ServerManager shared].HTTPsession.requestSerializer setValue:self.m_phone
+                                                                                       forHTTPHeaderField:SERVER_HEADER_PHONE];
+                                         
+                                         [[NSUserDefaults standardUserDefaults] setValue:self.token forKey:DEFAULTS_TOKEN];
+                                         [[NSUserDefaults standardUserDefaults] setValue:self.m_phone forKey:DEFAULTS_LOGIN];
+                                         [[NSUserDefaults standardUserDefaults] synchronize];
+                                     }
+                                     if (completed) {
+                                         completed(response, error);
+                                     }
+                                 }];*/
+}
+
+#pragma mark - Settings
+- (void)loadSettings
+{
+    if([[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_SETTINGS]) {
+        self.p_settings = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_SETTINGS]];
+    }
+}
+
+- (void)saveSettings
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.p_settings forKey:DEFAULTS_SETTINGS];
+}
+
+- (BOOL)validateSettings
+{
+    if (self.domain.length && self.siteActivePath.length && self.userAccessPath.length && self.currentStatePath.length) {
+        return YES;
+    }    
+    return NO;
+}
+
+- (void)setDomain:(NSString*)path
+{
+    [self.p_settings setValue:path forKey:DEFAULTS_DOMAIN];
+}
+
+- (NSString*)domain
+{
+    return [self.p_settings valueForKey:DEFAULTS_DOMAIN];
+}
+
+- (void)setSiteActivePath:(NSString*)path
+{
+    [self.p_settings setValue:path forKey:DEFAULTS_URL_ACTIVE];
+}
+
+- (NSString*)siteActivePath
+{
+    return [self.p_settings valueForKey:DEFAULTS_URL_ACTIVE];
+}
+
+- (void)setUserAccessPath:(NSString*)path
+{
+    [self.p_settings setValue:path forKey:DEFAULTS_URL_ACCESS];
+}
+
+- (NSString*)userAccessPath
+{
+    return [self.p_settings valueForKey:DEFAULTS_URL_ACCESS];
+}
+
+- (void)setCurrentState:(NSString*)path
+{
+    [self.p_settings setValue:path forKey:DEFAULTS_URL_STATUS];
+}
+
+- (NSString*)currentStatePath
+{
+    return [self.p_settings valueForKey:DEFAULTS_URL_STATUS];
+}
 
 @end

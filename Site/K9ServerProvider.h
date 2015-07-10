@@ -14,11 +14,13 @@
 #import "GetStateRequest.h"
 #import "SetActiveRequest.h"
 #import "SetAccessRequest.h"
+#import "AuthorizationRequest.h"
 
 // response
 #import "GetStateResponse.h"
 #import "SetActiveResponse.h"
 #import "SetAccessResponse.h"
+#import "AuthorizationResponse.h"
 
 // info
 #import "DomainData.h"
@@ -60,8 +62,24 @@ static NSString* K9ServerProvider_InvalidToken_Notification = @"K9ServerProvider
 + (NSString*)fileNameFromURL:(NSString*)url;
 + (NSString*)fontsDirectory;
 
-- (void)setActive:(SetActiveRequest*)request domain:(NSString*)domain completed:(void(^)(SetActiveResponse* result, NSError* error))completed;
-- (void)setAccess:(SetAccessRequest*)request domain:(NSString*)domain completed:(void(^)(SetAccessResponse* result, NSError* error))completed;
-- (void)getStatus:(GetStateRequest*)request domain:(NSString*)domain completed:(void(^)(GetStateResponse* response, NSError* error))completed;
+- (void)setActive:(SetActiveRequest*)request completed:(void(^)(SetActiveResponse* result, NSError* error))completed;
+- (void)setAccess:(SetAccessRequest*)request completed:(void(^)(SetAccessResponse* result, NSError* error))completed;
+- (void)getStatus:(GetStateRequest*)request  completed:(void(^)(GetStateResponse* response, NSError* error))completed;
+
+- (void)authorizationWithLogin:(NSString*)login password:(NSString*)password completed:(void(^)(AuthorizationResponse* result, NSError* error))completed;
+
+#pragma mark - Settings
+- (void)loadSettings;
+- (void)saveSettings;
+- (BOOL)validateSettings;
+
+- (NSString*)domain;
+- (NSString*)siteActivePath;
+- (NSString*)userAccessPath;
+- (NSString*)currentStatePath;
+- (void)setDomain:(NSString*)path;
+- (void)setSiteActivePath:(NSString*)path;
+- (void)setUserAccessPath:(NSString*)path;
+- (void)setCurrentState:(NSString*)path;
 
 @end

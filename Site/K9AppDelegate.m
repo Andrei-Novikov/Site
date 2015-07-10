@@ -20,41 +20,26 @@
     // Override point for customization after application launch.
    
 #ifdef DEBUG
-//    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"first_run"])
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"first_run"])
     {
-        [[NSUserDefaults standardUserDefaults] setValue:@YES                        forKey:@"first_run"];
-        [[NSUserDefaults standardUserDefaults] setValue:@"user"                     forKey:DEFAULTS_LOGIN];
-        [[NSUserDefaults standardUserDefaults] setValue:@"pass"                     forKey:DEFAULTS_PASSWORD];
-        [[NSUserDefaults standardUserDefaults] setValue:@"http://api.lk.yakimuk.name:8080,http://api.lk.yakimuk.name:8080" forKey:DEFAULTS_DOMAINS];
-        [[NSUserDefaults standardUserDefaults] setValue:@"/settings/site-enable"    forKey:DEFAULTS_URL_ACTIVE];
-        [[NSUserDefaults standardUserDefaults] setValue:@"/settings/user-enable"    forKey:DEFAULTS_URL_ACCESS];
-        [[NSUserDefaults standardUserDefaults] setValue:@"/settings/status"         forKey:DEFAULTS_URL_STATUS];
+        [[NSUserDefaults standardUserDefaults] setValue:@YES                                forKey:@"first_run"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"user"                             forKey:DEFAULTS_LOGIN];
+        [[NSUserDefaults standardUserDefaults] setValue:@"pass"                             forKey:DEFAULTS_PASSWORD];
+        
+        NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"http://api.lk.yakimuk.name:8080",DEFAULTS_DOMAIN,
+                                  @"/settings/site-enable", DEFAULTS_URL_ACTIVE,
+                                  @"/settings/user-enable", DEFAULTS_URL_ACCESS,
+                                  @"/settings/status", DEFAULTS_URL_STATUS, nil];
+        [[NSUserDefaults standardUserDefaults] setObject:settings forKey:DEFAULTS_SETTINGS];
+        
     }
 #endif
     
-    [self getCityWithGeocoder];
-    
-    
-    
+    [[K9ServerProvider shared] loadSettings];
+
     return YES;
 }
-
-- (void)getCityWithGeocoder
-{
-    CLGeocoder *reverseGeocoder = [[CLGeocoder alloc] init];
-    CLLocation* currentLocation = [[CLLocation alloc] initWithLatitude:54.846255 longitude:32.772302];
-    
-    [reverseGeocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if (!error && placemarks.count > 0) {
-             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             NSString* locality = placemark.locality;
-             NSString* sublocality = placemark.subLocality;
-             NSLog(@"%@ %@", locality, sublocality);
-         }
-    }];
-}
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

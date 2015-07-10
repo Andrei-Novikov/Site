@@ -23,30 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_LOGIN]) {
-        self.text_login.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_LOGIN];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_PASSWORD]) {
-        self.text_password.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_PASSWORD];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_DOMAINS]) {
-        self.text_domens.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_DOMAINS];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACTIVE]) {
-        self.text_active_url.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACTIVE];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACCESS]) {
-        self.text_access_url.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_ACCESS];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_STATUS]) {
-        self.text_status_url.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_URL_STATUS];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,13 +30,16 @@
     [super viewWillAppear:animated];
     
     self.tableView.rowHeight = 44.f;
+    self.text_domens.text     = [[K9ServerProvider shared] domain];
+    self.text_access_url.text = [[K9ServerProvider shared] userAccessPath];
+    self.text_active_url.text = [[K9ServerProvider shared] siteActivePath];
+    self.text_status_url.text = [[K9ServerProvider shared] currentStatePath];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - TextField Delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -72,36 +51,21 @@
     
     NSString* text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if (textField == self.text_login) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_LOGIN];
-    }
-    else if (textField == self.text_password) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_PASSWORD];
-    }
-    else if (textField == self.text_domens) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_DOMAINS];
+    if (textField == self.text_domens) {
+        [[K9ServerProvider shared] setDomain:text];
     }
     else if (textField == self.text_active_url) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_URL_ACTIVE];
+        [[K9ServerProvider shared] setSiteActivePath:text];
     }
     else if (textField == self.text_access_url) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_URL_ACCESS];
+        [[K9ServerProvider shared] setUserAccessPath:text];
     }
     else if (textField == self.text_status_url) {
-        [[NSUserDefaults standardUserDefaults] setValue:text forKey:DEFAULTS_URL_STATUS];
+        [[K9ServerProvider shared] setCurrentState:text];;
     }
+    [[K9ServerProvider shared] saveSettings];
     
     return YES;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>924BDC94-428E-4984-A63C-FB6ED481C903</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Site</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BF5963246909832C480B3B843010FA147583A12A</key>
+		<string>https://github.com/Navigator-Brest/Site.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Site.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BF5963246909832C480B3B843010FA147583A12A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Navigator-Brest/Site.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BF5963246909832C480B3B843010FA147583A12A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BF5963246909832C480B3B843010FA147583A12A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Site_git</string>
+		</dict>
+	</array>
+</dict>
+</plist>
