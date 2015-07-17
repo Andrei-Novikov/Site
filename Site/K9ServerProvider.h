@@ -24,6 +24,7 @@
 
 // info
 #import "DomainData.h"
+#import "AuthData.h"
 
 //#define BOOKS_ON_PAGE   10
 #define UPDATE_TIME_STEP_MIN    1.0f /*seconds*/
@@ -77,9 +78,15 @@ static NSString* K9ServerProvider_InvalidToken_Notification = @"K9ServerProvider
 - (NSString*)siteActivePath;
 - (NSString*)userAccessPath;
 - (NSString*)currentStatePath;
+- (NSString*)login;
+- (NSString*)password;
+- (BOOL)autologin;
 - (void)setDomain:(NSString*)path;
 - (void)setSiteActivePath:(NSString*)path;
 - (void)setUserAccessPath:(NSString*)path;
 - (void)setCurrentState:(NSString*)path;
+- (void)setLogin:(NSString*)login;
+- (void)setPassword:(NSString*)password;
+- (void)setAutologin:(BOOL)autologin;
 
 @end

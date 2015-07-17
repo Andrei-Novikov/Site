@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="4Nm-vp-Aul" customClass="MainViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sw0-Kj-16Q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -182,6 +182,9 @@
                                                     <rect key="frame" x="16" y="0.0" width="296" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="du2-e7-xUd" id="8AE-cp-LaA"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -201,6 +204,9 @@
                                                     <rect key="frame" x="16" y="0.0" width="296" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="du2-e7-xUd" id="LDs-HS-Lut"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -208,6 +214,40 @@
                                                 <constraint firstAttribute="trailing" secondItem="Wdu-ad-PRe" secondAttribute="trailing" constant="8" id="8f0-KX-4ca"/>
                                                 <constraint firstItem="Wdu-ad-PRe" firstAttribute="top" secondItem="Thk-w6-86m" secondAttribute="top" id="jmp-n7-hTj"/>
                                                 <constraint firstItem="Wdu-ad-PRe" firstAttribute="leading" secondItem="Thk-w6-86m" secondAttribute="leading" constant="16" id="mWP-Hb-v8D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Login" id="Khl-lM-Qtd" userLabel="Autologin">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Khl-lM-Qtd" id="M9d-Ek-Bod">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Запомнить логин и пароль" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE7-lx-Vsi">
+                                                    <rect key="frame" x="16" y="0.0" width="216" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="pRz-1i-hiP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9v-gd-kxl">
+                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="lnx-gV-8TA"/>
+                                                        <constraint firstAttribute="height" constant="31" id="ot6-gb-3wn"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="onAutoLoginSwith:" destination="du2-e7-xUd" eventType="valueChanged" id="l8g-rP-7fR"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GE7-lx-Vsi" firstAttribute="leading" secondItem="M9d-Ek-Bod" secondAttribute="leading" constant="16" id="Dbn-Qr-6au"/>
+                                                <constraint firstAttribute="centerY" secondItem="T9v-gd-kxl" secondAttribute="centerY" id="QYw-iK-4aZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="T9v-gd-kxl" secondAttribute="trailing" constant="8" id="TZh-cc-kwL"/>
+                                                <constraint firstItem="GE7-lx-Vsi" firstAttribute="top" secondItem="M9d-Ek-Bod" secondAttribute="top" id="hBq-uj-Vdc"/>
+                                                <constraint firstAttribute="bottom" secondItem="GE7-lx-Vsi" secondAttribute="bottom" id="zAk-X9-pTt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -220,13 +260,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9vF-fW-TZM" id="Zx3-Qb-SAb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWm-RB-WtC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWm-RB-WtC">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.078431372550000003" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lWm-RB-WtC" secondAttribute="trailing" id="12w-w7-zMr"/>
+                                                <constraint firstItem="lWm-RB-WtC" firstAttribute="top" secondItem="Zx3-Qb-SAb" secondAttribute="top" id="5ta-d2-PWJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="lWm-RB-WtC" secondAttribute="bottom" id="TzV-aL-7Nm"/>
+                                                <constraint firstItem="lWm-RB-WtC" firstAttribute="leading" secondItem="Zx3-Qb-SAb" secondAttribute="leading" id="eo3-te-RMg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
@@ -242,12 +288,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iaF-bP-maH" id="0Bx-1I-g0c">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Настройки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61u-Uh-8DG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61u-Uh-8DG">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="61u-Uh-8DG" firstAttribute="leading" secondItem="0Bx-1I-g0c" secondAttribute="leading" id="ACH-L1-sxq"/>
+                                                <constraint firstItem="61u-Uh-8DG" firstAttribute="top" secondItem="0Bx-1I-g0c" secondAttribute="top" id="CYP-4A-K6y"/>
+                                                <constraint firstAttribute="bottom" secondItem="61u-Uh-8DG" secondAttribute="bottom" id="QQa-DQ-3L5"/>
+                                                <constraint firstAttribute="trailing" secondItem="61u-Uh-8DG" secondAttribute="trailing" id="XDg-2C-n27"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
@@ -264,6 +316,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Авторизация" id="UT8-oo-DPh"/>
                     <connections>
+                        <outlet property="autologinSwitch" destination="T9v-gd-kxl" id="MWl-bp-ywW"/>
                         <outlet property="loginTextField" destination="X0L-aQ-TJB" id="Cag-Js-40L"/>
                         <outlet property="passTextField" destination="Wdu-ad-PRe" id="XYk-fW-k6m"/>
                         <segue destination="4Nm-vp-Aul" kind="show" id="fMd-uf-PSV"/>
@@ -318,7 +371,7 @@
             <objects>
                 <tableViewController id="yX0-JJ-v0i" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FKu-kY-YMc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -638,7 +691,7 @@
         <image name="avatar" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DlM-3D-VUc"/>
-        <segue reference="Ccp-MW-x2O"/>
+        <segue reference="KwE-nc-YfO"/>
+        <segue reference="fMd-uf-PSV"/>
     </inferredMetricsTieBreakers>
 </document>

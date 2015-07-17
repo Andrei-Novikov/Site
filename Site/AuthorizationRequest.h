@@ -9,6 +9,6 @@
 #import "K9BaseRequest.h"
 
 @interface AuthorizationRequest : K9BaseRequest
-@property (nonatomic, strong) NSString* login;
-@property (nonatomic, strong) NSString* password;
+@property (nonatomic, strong) NSString* user;
+@property (nonatomic, strong) NSString* pass;
 @end

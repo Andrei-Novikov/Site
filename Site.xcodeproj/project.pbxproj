@@ -33,6 +33,7 @@
 		DE4D34951AEF9CAF00DF4FC1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4D34941AEF9CAF00DF4FC1 /* CoreData.framework */; };
 		DE4D34991AEF9D7F00DF4FC1 /* K9ServerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4D34981AEF9D7F00DF4FC1 /* K9ServerProvider.m */; };
 		DE4D349B1AEFA13F00DF4FC1 /* K9ServerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4D349A1AEFA13F00DF4FC1 /* K9ServerCache.m */; };
+		DE6221671B58E7F900357EE1 /* AuthData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6221661B58E7F900357EE1 /* AuthData.m */; };
 		DEB338371B4FDB4900BCD751 /* AuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB338361B4FDB4900BCD751 /* AuthorizationViewController.m */; };
 		DEB3383A1B4FE1CF00BCD751 /* AuthorizationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB338391B4FE1CF00BCD751 /* AuthorizationRequest.m */; };
 		DEB3383D1B4FE2BB00BCD751 /* AuthorizationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB3383C1B4FE2BB00BCD751 /* AuthorizationResponse.m */; };
@@ -113,6 +114,8 @@
 		DE4D34971AEF9D7F00DF4FC1 /* K9ServerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = K9ServerProvider.h; sourceTree = "<group>"; };
 		DE4D34981AEF9D7F00DF4FC1 /* K9ServerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K9ServerProvider.m; sourceTree = "<group>"; };
 		DE4D349A1AEFA13F00DF4FC1 /* K9ServerCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = K9ServerCache.m; sourceTree = "<group>"; };
+		DE6221651B58E7F900357EE1 /* AuthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthData.h; sourceTree = "<group>"; };
+		DE6221661B58E7F900357EE1 /* AuthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthData.m; sourceTree = "<group>"; };
 		DEB338351B4FDB4900BCD751 /* AuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationViewController.h; sourceTree = "<group>"; };
 		DEB338361B4FDB4900BCD751 /* AuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationViewController.m; sourceTree = "<group>"; };
 		DEB338381B4FE1CF00BCD751 /* AuthorizationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationRequest.h; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 			children = (
 				DEFFE8681AF0F263007DAEE5 /* DomainData.h */,
 				DEFFE8691AF0F263007DAEE5 /* DomainData.m */,
+				DE6221651B58E7F900357EE1 /* AuthData.h */,
+				DE6221661B58E7F900357EE1 /* AuthData.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -506,6 +511,7 @@
 				DE4D34421AEF932800DF4FC1 /* K9AppDelegate.m in Sources */,
 				DE4D34681AEF980000DF4FC1 /* K9BaseRequest.m in Sources */,
 				DEFFE86A1AF0F263007DAEE5 /* DomainData.m in Sources */,
+				DE6221671B58E7F900357EE1 /* AuthData.m in Sources */,
 				DE4D34931AEF9CA000DF4FC1 /* K9NSManagedObject.m in Sources */,
 				DE4D34651AEF97B600DF4FC1 /* K9ServerManager.m in Sources */,
 				DE4D348C1AEF9B9A00DF4FC1 /* K9UIViewExt.m in Sources */,

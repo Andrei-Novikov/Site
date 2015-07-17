@@ -9,5 +9,6 @@
 #import "AuthorizationRequest.h"
 
 @implementation AuthorizationRequest
-
+@synthesize user;
+@synthesize pass;
 @end

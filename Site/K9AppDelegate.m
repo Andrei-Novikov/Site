@@ -30,7 +30,8 @@
                                   @"http://api.lk.yakimuk.name:8080",DEFAULTS_DOMAIN,
                                   @"/settings/site-enable", DEFAULTS_URL_ACTIVE,
                                   @"/settings/user-enable", DEFAULTS_URL_ACCESS,
-                                  @"/settings/status", DEFAULTS_URL_STATUS, nil];
+                                  @"/settings/status", DEFAULTS_URL_STATUS,
+                                  @"/login", DEFAULTS_AUTHORIZATION, nil];
         [[NSUserDefaults standardUserDefaults] setObject:settings forKey:DEFAULTS_SETTINGS];
         
     }

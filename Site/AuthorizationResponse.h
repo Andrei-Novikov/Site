@@ -7,7 +7,9 @@
 //
 
 #import "K9BaseResponse.h"
+#import "AuthData.h"
 
 @interface AuthorizationResponse : K9BaseResponse
-
+@property (nonatomic, strong) NSNumber* success;
+@property (nonatomic, strong) AuthData* data;
 @end

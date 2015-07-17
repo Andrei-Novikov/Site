@@ -223,33 +223,23 @@
 
 - (void)authorizationWithLogin:(NSString*)login password:(NSString*)password completed:(void(^)(AuthorizationResponse* result, NSError* error))completed
 {
-/*    AuthorizationRequest* request = [AuthorizationRequest new];
-    request.login    = login;
-    request.password = password;
+    AuthorizationRequest* request = [AuthorizationRequest new];
+    request.user = @"polesiepotolki";//login;
+    request.pass = @"polesiepotolki";//password;
     [[K9ServerManager shared] postRequest:request
                               requestType:ServerManagerRequestType_JSON
-                       requestRelativeURL:SERVER_AUTHORIZATION
+                       requestRelativeURL:[[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_AUTHORIZATION]
                                uploadData:nil
-                            responseClass:[K9AuthorizationResponse class]
-                                 delegate:^(id response, NSError *error) {
+                            responseClass:[AuthorizationResponse class]
+                                 delegate:^(AuthorizationResponse* response, NSError *error) {
                                      if (!error)
                                      {
-                                         self.p_myUserID = [(K9AuthorizationResponse*)response user].id;
-                                         self.token = [(K9AuthorizationResponse*)response user].access_token;
-                                         self.m_phone = [(K9AuthorizationResponse*)response user].phone;
-                                         [[K9ServerManager shared].HTTPsession.requestSerializer setValue:self.token
-                                                                                       forHTTPHeaderField:SERVER_HEADER_TOKEN];
-                                         [[K9ServerManager shared].HTTPsession.requestSerializer setValue:self.m_phone
-                                                                                       forHTTPHeaderField:SERVER_HEADER_PHONE];
-                                         
-                                         [[NSUserDefaults standardUserDefaults] setValue:self.token forKey:DEFAULTS_TOKEN];
-                                         [[NSUserDefaults standardUserDefaults] setValue:self.m_phone forKey:DEFAULTS_LOGIN];
-                                         [[NSUserDefaults standardUserDefaults] synchronize];
+                                         [[K9ServerManager shared].HTTPsession.requestSerializer setValue:[NSString stringWithFormat:SERVER_HEADER_TOKEN_VALUE, response.data.access_token] forHTTPHeaderField:SERVER_HEADER_TOKEN_NAME];
                                      }
                                      if (completed) {
                                          completed(response, error);
                                      }
-                                 }];*/
+                                 }];
 }
 
 #pragma mark - Settings
@@ -311,6 +301,40 @@
 - (NSString*)currentStatePath
 {
     return [self.p_settings valueForKey:DEFAULTS_URL_STATUS];
+}
+
+- (void)setLogin:(NSString*)login
+{
+    [self.p_settings setValue:login forKey:DEFAULTS_LOGIN];
+}
+
+- (NSString*)login
+{
+    return [self.p_settings valueForKey:DEFAULTS_LOGIN];
+}
+
+- (void)setPassword:(NSString*)password
+{
+    [self.p_settings setValue:password forKey:DEFAULTS_PASSWORD];
+}
+
+- (NSString*)password
+{
+    return [self.p_settings valueForKey:DEFAULTS_PASSWORD];
+}
+
+- (void)setAutologin:(BOOL)autologin
+{
+    [self.p_settings setValue:@(autologin) forKey:DEFAULTS_AUTOLOGIN];
+    if (!autologin) {
+        [self.p_settings removeObjectForKey:DEFAULTS_LOGIN];
+        [self.p_settings removeObjectForKey:DEFAULTS_PASSWORD];
+    }
+}
+
+- (BOOL)autologin
+{
+    return [[self.p_settings valueForKey:DEFAULTS_AUTOLOGIN] boolValue];
 }
 
 @end

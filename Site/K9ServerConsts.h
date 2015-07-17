@@ -15,4 +15,7 @@
 
 #define SERVER_BASE_URL     @""
 
+#define SERVER_HEADER_TOKEN_NAME    @"Authorization"
+#define SERVER_HEADER_TOKEN_VALUE   @"Bearer %@"
+
 #endif

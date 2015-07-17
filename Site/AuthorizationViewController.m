@@ -8,17 +8,30 @@
 
 #import "AuthorizationViewController.h"
 
-@interface AuthorizationViewController ()
+@interface AuthorizationViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField* loginTextField;
 @property (nonatomic, strong) IBOutlet UITextField* passTextField;
+@property (nonatomic, strong) IBOutlet UISwitch* autologinSwitch;
 
 @end
 
 @implementation AuthorizationViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    [self.autologinSwitch setOn:[K9ServerProvider shared].autologin];
+    if (self.autologinSwitch.isOn) {
+        if ([K9ServerProvider shared].login) {
+            self.loginTextField.text = [K9ServerProvider shared].login;
+            
+            if ([K9ServerProvider shared].password) {
+                self.passTextField.text = [K9ServerProvider shared].password;
+            }
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -26,14 +39,6 @@
     [super viewWillAppear:animated];
     
     self.tableView.rowHeight = 44.f;
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_LOGIN]) {
-        self.loginTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_LOGIN];
-    }
-     
-     if ([[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_PASSWORD]) {
-         self.passTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_PASSWORD];
-     }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,11 +53,20 @@
         [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
         if ([self validateAutorization])
         {
-            [self performSegueWithIdentifier:@"authorization" sender:self];
+            [[K9ServerProvider shared] setLogin:self.loginTextField.text];
+            [[K9ServerProvider shared] setPassword:self.passTextField.text];
+            [[K9ServerProvider shared] saveSettings];
+            
+            [[K9ServerProvider shared] authorizationWithLogin:self.loginTextField.text password:self.passTextField.text completed:^(AuthorizationResponse *result, NSError *error) {
+                if (!error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self performSegueWithIdentifier:@"authorization" sender:self];
+                    });                    
+                }
+            }];
         }
     }    
 }
-
 
 - (BOOL)validateAutorization
 {
@@ -78,6 +92,22 @@
     });
 }
 
+- (IBAction)onAutoLoginSwith:(UISwitch*)sender
+{
+    if (sender == self.autologinSwitch) {
+        [[K9ServerProvider shared] setAutologin:sender.isOn];
+        [[K9ServerProvider shared] saveSettings];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([string isEqualToString:@"\n"]) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - Navigation
 
@@ -91,7 +121,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    [self.loginTextField resignFirstResponder];
+    [self.passTextField resignFirstResponder];
 }
 
 @end

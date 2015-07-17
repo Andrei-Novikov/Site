@@ -22,6 +22,8 @@
 #define DEFAULTS_URL_ACTIVE         @"site_active"
 #define DEFAULTS_URL_ACCESS         @"site_access"
 #define DEFAULTS_URL_STATUS         @"site_status"
+#define DEFAULTS_AUTOLOGIN          @"autologin"
+#define DEFAULTS_AUTHORIZATION      @"authorization"
 
 #define ALERT_OK                    NSLocalizedString(@"OK", nil)
 #define ALERT_DONE                  NSLocalizedString(@"Готово", @"Done")
