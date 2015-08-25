@@ -7,6 +7,7 @@
 //
 
 #import "AuthorizationViewController.h"
+#import "MBProgressHUD.h"
 
 @interface AuthorizationViewController () <UITextFieldDelegate>
 
@@ -50,19 +51,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1 && indexPath.row == 0) {
+        [self hideKeyboard];
         [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
         if ([self validateAutorization])
         {
             [[K9ServerProvider shared] setLogin:self.loginTextField.text];
             [[K9ServerProvider shared] setPassword:self.passTextField.text];
             [[K9ServerProvider shared] saveSettings];
-            
+         
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [[K9ServerProvider shared] authorizationWithLogin:self.loginTextField.text password:self.passTextField.text completed:^(AuthorizationResponse *result, NSError *error) {
-                if (!error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (!error && result.success.boolValue) {
                         [self performSegueWithIdentifier:@"authorization" sender:self];
-                    });                    
-                }
+                    }
+                    else {
+                        [self showMessageWithMessage:@"Ошибка логина" delegate:nil];
+                    }                    
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
             }];
         }
     }    
@@ -120,6 +127,11 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self hideKeyboard];
+}
+
+- (void)hideKeyboard
 {
     [self.loginTextField resignFirstResponder];
     [self.passTextField resignFirstResponder];

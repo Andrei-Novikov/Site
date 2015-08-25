@@ -224,11 +224,12 @@
 - (void)authorizationWithLogin:(NSString*)login password:(NSString*)password completed:(void(^)(AuthorizationResponse* result, NSError* error))completed
 {
     AuthorizationRequest* request = [AuthorizationRequest new];
-    request.user = @"polesiepotolki";//login;
-    request.pass = @"polesiepotolki";//password;
+    request.user = login;   //@"brestpotolki"
+    request.pass = password;//@"123qwe!@#"
+    NSString* relativeURL = [NSString stringWithFormat:@"%@%@", self.domain, self.authorizationPath];
     [[K9ServerManager shared] postRequest:request
                               requestType:ServerManagerRequestType_JSON
-                       requestRelativeURL:[[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_AUTHORIZATION]
+                       requestRelativeURL:relativeURL
                                uploadData:nil
                             responseClass:[AuthorizationResponse class]
                                  delegate:^(AuthorizationResponse* response, NSError *error) {
@@ -337,4 +338,13 @@
     return [[self.p_settings valueForKey:DEFAULTS_AUTOLOGIN] boolValue];
 }
 
+- (NSString*)authorizationPath
+{
+    return [self.p_settings valueForKey:DEFAULTS_AUTHORIZATION];
+}
+
+- (void)setAuthorizationPath:(NSString*)path
+{
+    [self.p_settings setValue:path forKey:DEFAULTS_AUTHORIZATION];
+}
 @end

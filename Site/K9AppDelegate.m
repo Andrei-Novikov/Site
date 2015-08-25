@@ -22,12 +22,12 @@
 #ifdef DEBUG
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"first_run"])
     {
-        [[NSUserDefaults standardUserDefaults] setValue:@YES                                forKey:@"first_run"];
-        [[NSUserDefaults standardUserDefaults] setValue:@"user"                             forKey:DEFAULTS_LOGIN];
-        [[NSUserDefaults standardUserDefaults] setValue:@"pass"                             forKey:DEFAULTS_PASSWORD];
+        [[NSUserDefaults standardUserDefaults] setValue:@YES        forKey:@"first_run"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"user"     forKey:DEFAULTS_LOGIN];
+        [[NSUserDefaults standardUserDefaults] setValue:@"pass"     forKey:DEFAULTS_PASSWORD];
         
         NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"http://api.lk.yakimuk.name:8080",DEFAULTS_DOMAIN,
+                                  @"http://api.lk.yakimuk.name:30452",DEFAULTS_DOMAIN,
                                   @"/settings/site-enable", DEFAULTS_URL_ACTIVE,
                                   @"/settings/user-enable", DEFAULTS_URL_ACCESS,
                                   @"/settings/status", DEFAULTS_URL_STATUS,

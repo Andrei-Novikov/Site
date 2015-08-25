@@ -78,6 +78,7 @@ static NSString* K9ServerProvider_InvalidToken_Notification = @"K9ServerProvider
 - (NSString*)siteActivePath;
 - (NSString*)userAccessPath;
 - (NSString*)currentStatePath;
+- (NSString*)authorizationPath;
 - (NSString*)login;
 - (NSString*)password;
 - (BOOL)autologin;
@@ -88,5 +89,6 @@ static NSString* K9ServerProvider_InvalidToken_Notification = @"K9ServerProvider
 - (void)setLogin:(NSString*)login;
 - (void)setPassword:(NSString*)password;
 - (void)setAutologin:(BOOL)autologin;
+- (void)setAuthorizationPath;
 
 @end
